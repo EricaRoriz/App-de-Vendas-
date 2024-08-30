@@ -1,0 +1,60 @@
+# A. Mensagem de boas-vindas
+print('Bem-vindo à loja de Açaí e Cupuaçu da Érica Marta Roriz - RU: 4573966!')
+
+# Cardápio de Açaí e Cupuaçu
+print('\nCardápio:')
+print('{:<10} {:<10} {:<10}'.format('Sabor', 'Tamanho', 'Valor (R$)'))
+print('{:<10} {:<10} {:<10}'.format('Cupuaçu', 'P', '9.00'))
+print('{:<10} {:<10} {:<10}'.format('Cupuaçu', 'M', '14.00'))
+print('{:<10} {:<10} {:<10}'.format('Cupuaçu', 'G', '18.00'))
+print('{:<10} {:<10} {:<10}'.format('Açaí', 'P', '11.00'))
+print('{:<10} {:<10} {:<10}'.format('Açaí', 'M', '16.00'))
+print('{:<10} {:<10} {:<10}'.format('Açaí', 'G', '20.00'))
+
+# Acumulador de valores dos pedidos
+total_pedido = 0
+
+# Estrutura de repetição
+while True:
+    # B. Input do sabor
+    sabor = input('Digite o sabor desejado (CP para Cupuaçu, AC para Açaí): ')
+
+    # Verificação do sabor
+    if sabor not in ['CP', 'AC']:
+        print('Sabor inválido. Tente novamente.')
+        continue
+
+    # C. Input do tamanho
+    tamanho = input('Digite o tamanho desejado (P, M ou G): ')
+
+    # Verificação do tamanho
+    if tamanho not in ['P', 'M', 'G']:
+        print('Tamanho inválido. Tente novamente.')
+        continue
+
+    # D. Combinações de sabor e tamanho
+    if sabor == 'CP':
+        if tamanho == 'P':
+            valor_pedido = 9.00
+        elif tamanho == 'M':
+            valor_pedido = 14.00
+        else:
+            valor_pedido = 18.00
+    else:  # sabor == 'AC'
+        if tamanho == 'P':
+            valor_pedido = 11.00
+        elif tamanho == 'M':
+            valor_pedido = 16.00
+        else:
+            valor_pedido = 20.00
+
+    # Adicionando o valor do pedido ao acumulador
+    total_pedido += valor_pedido
+
+    # F. Perguntando se deseja pedir mais alguma coisa
+    mais_pedido = input('Deseja pedir mais alguma coisa? (S/N): ')
+    if mais_pedido.upper() != 'S':
+        break  # Sair do loop se não deseja mais pedir
+
+# G. Mensagem com o total do pedido
+print('Total do pedido: R$ {:.2f}'.format(total_pedido))
